@@ -11,32 +11,28 @@ let tempUserCards = []
 let tempBotCards = []
 let startingCard
 
-// function instantiateCards() {
-  for (let i = 0; i < 5; i++) {
-    const randCard = tempCards[Math.floor(Math.random()*tempCards.length)];
-    tempUserCards.push(randCard)
-    // tempCards.splice(tempCards.indexOf(randCard), 1)
-    tempCards.filter(card => card.name !== randCard.name)
-  }
+for (let i = 0; i < 5; i++) {
+  const randCard = tempCards[Math.floor(Math.random()*tempCards.length)];
+  tempUserCards.push(randCard)
+  tempCards = tempCards.filter(card => card.cardName !== randCard.cardName)
+}
 
-  for (let i = 0; i < 5; i++) {
-    const randCard = tempCards[Math.floor(Math.random()*tempCards.length)];
-    tempBotCards.push(randCard)
-    // tempCards.splice(tempCards.indexOf(randCard), 1)
-    tempCards.filter(card => card.name !== randCard.name)
+for (let i = 0; i < 5; i++) {
+  const randCard = tempCards[Math.floor(Math.random()*tempCards.length)];
+  tempBotCards.push(randCard)
+  tempCards = tempCards.filter(card => card.cardName !== randCard.cardName)
 
-  }
+}
 
+startingCard = tempCards[Math.floor(Math.random()*tempCards.length)];
+while (startingCard.hasAction) {
   startingCard = tempCards[Math.floor(Math.random()*tempCards.length)];
-  while (startingCard.hasAction) {
-    startingCard = tempCards[Math.floor(Math.random()*tempCards.length)];
-  }
+}
 
-  tempCards.filter(card => card.name !== startingCard.name)
-// }
+tempCards = tempCards.filter(card => card.cardName !== startingCard.cardName)
+console.log(tempCards)
 
-// instantiateCards()
-console.log(CardsList)
+
 function App() {
   const [marketCards, setMarketCards] = React.useState(tempCards)
   const [userCards, setUserCards] = React.useState(tempUserCards)
@@ -68,7 +64,6 @@ function App() {
 
   function reset() {
     let newTempCards = CardsList
-    console.log(CardsList)
     let newTempUserCards = []
     let newTempBotCards = []
     let newStartingCard
@@ -76,23 +71,23 @@ function App() {
       const randCard = newTempCards[Math.floor(Math.random()*newTempCards.length)];
       newTempUserCards.push(randCard)
       // newTempCards.splice(newTempCards.indexOf(randCard), 1)
-      newTempCards.filter(card => card.name !== randCard.name)
+      newTempCards = newTempCards.filter(card => card.cardName !== randCard.cardName)
     }
   
     for (let i = 0; i < 5; i++) {
       const randCard = newTempCards[Math.floor(Math.random()*newTempCards.length)];
       newTempBotCards.push(randCard)
       // newTempCards.splice(newTempCards.indexOf(randCard), 1)
-      newTempCards.filter(card => card.name !== randCard.name)
+      newTempCards = newTempCards.filter(card => card.cardName !== randCard.cardName)
     }
 
-    newStartingCard = tempCards[Math.floor(Math.random()*tempCards.length)];
+    newStartingCard = newTempCards[Math.floor(Math.random()*newTempCards.length)];
     while (newStartingCard.hasAction) {
-      newStartingCard = tempCards[Math.floor(Math.random()*tempCards.length)];
+      newStartingCard = newTempCards[Math.floor(Math.random()*newTempCards.length)];
     }
 
-    tempCards.filter(card => card.name !== newStartingCard.name)
-
+    newTempCards = newTempCards.filter(card => card.cardName !== newStartingCard.cardName)
+    console.log(newTempCards)
     setMarketCards(newTempCards)
     setUserCards(newTempUserCards)
     setBotCards(newTempBotCards)
@@ -103,7 +98,7 @@ function App() {
     setAmountToPick(null)
     setShouldUserPick(false)
 
-    newTempCards = CardsList
+    // newTempCards = CardsList
   }
 
   function handleMarketUse(activator) {
