@@ -1,13 +1,185 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "poppins";
+  /* background-color: rgb(162, 227, 236); */
+}
+h1 {
+  text-align: center;
+  font-size: 190%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.reset {
+  cursor: pointer;  
+  height: 45px;
+  width: 140px;
+  position: absolute;
+  left: 40vw;
+  top: 40vh;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+}
+
+.game-area {
+  display: flex;
+  height: 85vh;
+  width: 600px;
+  margin: auto;
+  background-color: blueviolet;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.bot-card-area {
+  height: 20%;
+  width: 100%;
+  background-color: black;
+  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.bot-card-area::-webkit-scrollbar {height: 5px;}
+.bot-card-area::-webkit-scrollbar-track {background: hsla(278, 66%, 66%, 0.219)}
+.bot-card-area::-webkit-scrollbar-thumb {background: hsla(278, 84%, 42%, 0.397);}
+.bot-card-area::-webkit-scrollbar-thumb:hover {background: hsla(278, 84%, 42%, 0.897);}
+
+.bot-card-area img {
+  height: 90%;
+  width: 12%;
+  position: relative;
+  top: 5%;
+  padding-left: 5%;
+}
+
+.play-area {
+  height: 60%;
+  width: 100%;
+  background-color: green;
+}
+
+.instruction {
+  position: relative;
+  top: 10%;
+  /* left: 15%; */
+  font-size: 150%;
+  color: white;
+  text-align: center;
+}
+
+.current-cards {
+  height: 40%;
+  width: 120px;
+  /* background-color: black; */
+  margin-right: auto;
+  margin-top: auto;
+  position: relative;
+  top: 26%;
+  left: 37.5%;
+}
+
+.current-cards img {
+  height: 110%;
+  width: 100px;
+  position: relative;
+  top: 5%;
+  left: 20%;
+}
+
+.market {
+  height: 40%;
+  width: 25%;
+  /* background-color: black; */
+  margin-left: auto;
+  position: relative;
+  right: 10%;
+  top: -10%;
+}
+
+.market img {
+  height: 90%;
+  width: 60%;
+  position: relative;
+  top: 5%;
+  left: 20%;
+  cursor: pointer;
+}
+
+.player-card-area {
+  height: 20%;
+  width: 100%;
+  background-color: black;
+  border-top: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.player-card-area::-webkit-scrollbar {height: 5px;}
+.player-card-area::-webkit-scrollbar-track {background: hsla(278, 66%, 66%, 0.219)}
+.player-card-area::-webkit-scrollbar-thumb {background: hsla(278, 84%, 42%, 0.397);}
+.player-card-area::-webkit-scrollbar-thumb:hover {background: hsla(278, 84%, 42%, 0.897);}
+
+.player-barrier {
+  background-color: rgba(255, 166, 0, 0);
+  height: 15vh;
+  width: 40vw;
+  top: 81%;
+  left: 30%;
+  position: absolute;
+  z-index: 3;
+  display: none;
+}
+
+.market-barrier {
+  background-color: rgba(255, 166, 0, 0);
+  height: 20vh;
+  width: 8vw;
+  top: 50%;
+  left: 57%;
+  position: absolute;
+  z-index: 3;
+  display: none;
+}
+
+.player-cards-amount{
+  background-color: white;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 29%;
+  top: 76%;
+}
+
+.bot-cards-amount{
+  background-color: white;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 29%;
+  top: 32%;
+}
+
+.player-card-area img {
+  height: 90%;
+  width: 12%;
+  position: relative;
+  top: 5%;
+  padding-left: 5%;
+  cursor: pointer;
 }
